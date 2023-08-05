@@ -5,7 +5,15 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
 // Задание 1  Дан List ‹String› names. Удалите первую букву из каждого имени и верните отсортированный список.
-
+        List<String> names = List.of("Hello", "world", "", "I", "like", "java");
+        System.out.println(names);
+        List<String> newNames = names.stream()
+                .filter(s -> !s.isEmpty())
+                .map(s -> s.substring(1))
+                .filter(s -> !s.isEmpty())
+                .sorted()
+                .collect(Collectors.toList());
+        System.out.println(newNames);
 
 // Задание 2  Переворачиваем массив
         int[]arr = {1, 2, 3, 4, 5, 6, 7};
